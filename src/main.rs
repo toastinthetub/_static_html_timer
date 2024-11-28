@@ -20,6 +20,7 @@ async fn main() {
 async fn home_timer() -> Html<String> {
     let pst: Tz = "America/Los_Angeles".parse().unwrap();
     let now = Local::now().with_timezone(&pst);
+
     let target = pst.with_ymd_and_hms(2024, 12, 4, 16, 30, 0).unwrap();
 
     let duration = target - now;
@@ -78,12 +79,13 @@ async fn home_timer() -> Html<String> {
                 <h1>timer for my madderie shaffer :)</h1>
                 <p>Time remaining until Sam gets home:</p>
                 <p>(December 4th, 2024 at 4:30 PM PST)</p>
-                <h2>{} hours and {} minutes (or exactly {:.3} days)</h2>
+                <h2>{} hours and {} minutes (or exactly {:.5} days)</h2>
                 <p>i will see you soon my love</p>
+                <p>(for reference, current time is {})</p>
             </div>
         </body>
         </html>
         "#,
-        hours, minutes, total_days
+        hours, minutes, total_days, now
     ))
 }
