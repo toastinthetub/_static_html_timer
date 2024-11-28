@@ -26,7 +26,7 @@ async fn home_timer() -> Html<String> {
     let t_h = now.hour();
     let t_n = now.minute();
 
-    let today = format!("{}/{} @ {}:{}", t_d, t_m, t_h, t_n);
+    let today = format!("{}/{} @ {}:{}", t_m, t_d, t_h, t_n);
 
     let target = pst.with_ymd_and_hms(2024, 12, 4, 16, 30, 0).unwrap();
 
